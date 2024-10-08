@@ -15,15 +15,24 @@
 
 	<body>
 		<input-pincode></input-pincode>
+		-
 		<input-pincode length="7"> </input-pincode>
-		<input-pincode hasError="true"> </input-pincode>
+		-
+		<input-pincode has-error="true"> </input-pincode>
+		-
 		<input-pincode disabled></input-pincode>
+		-
 		<input-pincode placeholder="0"></input-pincode>
+		-
 		<input-pincode only-numbers="false"></input-pincode>
+		-
 	</body>
 	<script>
 		document.querySelector('input-pincode').addEventListener('Change', (e) => {
 			console.log(e);
 		});
+		setTimeout(() => {
+			document.querySelector('input-pincode').setAttribute('has-error', true);
+		}, 3000);
 	</script>
 </html>
