@@ -4,6 +4,11 @@ export const PincodeProps = {
 		reflect: true,
 		value: (): number => 4
 	},
+	initializeInputFocus: {
+		type: Boolean,
+		reflect: true,
+		value: (): boolean => true
+	},
 	onlyNumbers: { type: Boolean, reflect: true, value: (): boolean => true },
 	disabled: { type: Boolean, reflect: true, value: (): boolean => false },
 	hasError: { type: Boolean, reflect: true, value: (): boolean => false },

@@ -1,4 +1,13 @@
-import { c, useState, useEffect, Host, useEvent, Props, useRef } from 'atomico';
+import {
+	c,
+	useState,
+	useEffect,
+	Host,
+	useEvent,
+	Props,
+	useRef,
+	useProp
+} from 'atomico';
 import { PincodeProps } from './Pincode.type';
 import { pincodeStyle } from '../css/pincode.style';
 
@@ -8,12 +17,13 @@ function PincodeComponent({
 	length,
 	onlyNumbers,
 	disabled,
-	hasError,
-	placeholder
+	placeholder,
+	initializeInputFocus
 }: Props<typeof PincodeComponent.props>): Host<{
 	onChange: Event; // Host event listener for 'Change' event
 }> {
 	const inputsRef = useRef([]);
+	const [hasError, setHasError] = useProp('hasError');
 	const [values, setValues] = useState(new Array(length).fill(EMPTY_STRING));
 	const [isCompleted, setisCompleted] = useState(false);
 	const [value, setValue] = useState(EMPTY_STRING);
@@ -21,6 +31,7 @@ function PincodeComponent({
 	// Function to handle input changes
 
 	const handleInput = ({ value, index }: { value: string; index: number }) => {
+		console.log('handleevent');
 		const newValues = [...values];
 		const regex = onlyNumbers ? /^\d*$/ : /./; // Allow only numbers or any character based on the prop
 		newValues[index] = regex.test(value) ? value : EMPTY_STRING;
@@ -70,7 +81,8 @@ function PincodeComponent({
 
 		// Handle backspace: move focus to previous input if current input is empty
 
-		if (e.key === 'Backspace' && input.value === EMPTY_STRING && index > 0) {
+		if (e.key === 'Backspace' && index > 0) {
+			e.preventDefault();
 			const newValues = [...values];
 			newValues[index] = EMPTY_STRING;
 			setValues(newValues);
@@ -89,7 +101,8 @@ function PincodeComponent({
 			input.value !== EMPTY_STRING &&
 			regex.test(e.key)
 		) {
-			handleInput({ value: e.key, index });
+			e.preventDefault();
+			handleInput({ value: e.key, index: index });
 			return;
 		}
 
@@ -114,13 +127,15 @@ function PincodeComponent({
 	// ON INIT EFFECT
 
 	useEffect(() => {
-		inputsRef.current[0].focus();
+		initializeInputFocus && inputsRef.current[0].focus();
 	}, []);
 
 	// ON ERROR EFFECT
 
 	useEffect(() => {
-		hasError && setValues(new Array(length).fill(EMPTY_STRING));
+		hasError &&
+			(setValues(new Array(length).fill(EMPTY_STRING)),
+			initializeInputFocus && inputsRef.current[0].focus());
 	}, [hasError]);
 
 	// ON VALUES CHANGE EFFECT
@@ -128,6 +143,7 @@ function PincodeComponent({
 	useEffect(() => {
 		setisCompleted(values.every((val) => val.length === 1));
 		setValue(values.join(''));
+		values.join('').length > 0 && setHasError(false);
 	}, [values]);
 
 	// ON VALUE CHANGE  EFFECT
@@ -141,23 +157,31 @@ function PincodeComponent({
 
 	return (
 		<host shadowDom>
-			{values.map((value, index) => (
-				<input
-					class="webcomponent-input-pincode"
-					key={'inputcode' + index}
-					ref={(el) => (inputsRef.current[index] = el)}
-					type={onlyNumbers ? 'tel' : 'text'}
-					maxLength={1}
-					placeholder={placeholder.charAt(0)}
-					value={value}
-					disabled={disabled}
-					onpaste={index === 0 ? handlePaste : undefined}
-					oninput={(e) =>
-						handleInput({ value: (e.target as HTMLInputElement).value, index })
-					}
-					onkeydown={(e) => handleKeyDown(e as KeyboardEvent, index)}
-				/>
-			))}
+			<div class="webcomponent-input-pincode-container">
+				{values.map(($value, index) => (
+					<input
+						className={`webcomponent-input-pincode ${
+							$value.length >= 1 ? 'valid' : ''
+						} ${' '} ${hasError ? 'has-error' : ''}`}
+						key={'inputcode' + index}
+						ref={(el) => (inputsRef.current[index] = el)}
+						type={onlyNumbers ? 'tel' : 'text'}
+						maxLength={1}
+						placeholder={placeholder.charAt(0)}
+						value={$value}
+						disabled={disabled}
+						onpaste={index === 0 ? handlePaste : undefined}
+						oninput={(e) => {
+							e.preventDefault();
+							handleInput({
+								value: (e.target as HTMLInputElement).value,
+								index
+							});
+						}}
+						onkeydown={(e) => handleKeyDown(e as KeyboardEvent, index)}
+					/>
+				))}
+			</div>
 		</host>
 	);
 }
