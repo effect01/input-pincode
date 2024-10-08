@@ -1,0 +1,47 @@
+{
+  "name": "input-pincode",
+  "version": "1.0.0",
+  "main": "index.js",
+  "keywords": ["pincode", "input","webcomponent","react","angular","javascript","component"],
+  "author": "",
+  "license": "ISC",
+  "description": "PINCODE Input WEB COMPONENT",
+  "scripts": {
+    "start": "vite",
+    "build": "vite build",
+    "test-generate": "vitest",
+    "test-generate:coverage": "vitest run --coverage",
+    "test-generate:ui": "vitest --ui",
+    "exports": "exports \"src/**/*.{ts,tsx}\" --exports --types --main index --analyzer",
+    "prepublishOnly": "",
+    "build-wc": "vite build && npm run exports"
+  },
+  "dependencies": {
+    "@atomico/hooks": "^4.0.0",
+    "atomico": "latest"
+  },
+  "devDependencies": {
+    "@atomico/exports": "^0.37.0",
+    "@atomico/tsconfig": "^1.1.2",
+    "@atomico/vite": "^2.7.0",
+    "@open-wc/testing": "^3.1.6",
+    "@uppercod/vite-meta-url": "latest",
+    "@uppercod/vite-meta-url-load-css": "latest",
+    "@vitest/coverage-istanbul": "^0.30.1",
+    "@vitest/ui": "^0.30.1",
+    "csso": "latest",
+    "jsdom": "^21.1.1",
+    "typescript": "^4.8.4",
+    "vite": "^4.2.1",
+    "vite-plugin-istanbul": "^3.0.1"
+  },
+  "peerDependencies": {
+    "@atomico/react": "latest"
+  },
+  "peerDependenciesMeta": {
+    "@atomico/react": {
+      "optional": true
+    }
+  },
+  "module": "./dist/index.js"
+}

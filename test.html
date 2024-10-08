@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta slot="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Input pincode Component</title>
+
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css"
+		/>
+		<script type="module" src="./src/index.tsx"></script>
+		<!--Se puede importar una hoja de estilos distinta para cambiar la paleta-->
+	</head>
+
+	<body>
+		<input-pincode></input-pincode>
+		<input-pincode disabled></input-pincode>
+		<input-pincode only-numbers="false"></input-pincode>
+	</body>
+	<script>
+		document.querySelector('input-pincode').addEventListener('Change', (e) => {
+			console.log(e);
+		});
+	</script>
+</html>
