@@ -9,12 +9,12 @@ function PincodeComponent({
 	onlyNumbers,
 	disabled,
 	hasError,
-	defaultValue
+	placeholder
 }: Props<typeof PincodeComponent.props>): Host<{
 	onChange: Event; // Host event listener for 'Change' event
 }> {
 	const inputsRef = useRef([]);
-	const [values, setValues] = useState(new Array(length).fill(defaultValue));
+	const [values, setValues] = useState(new Array(length).fill(EMPTY_STRING));
 	const [isCompleted, setisCompleted] = useState(false);
 	const [value, setValue] = useState(EMPTY_STRING);
 
@@ -120,7 +120,7 @@ function PincodeComponent({
 	// ON ERROR EFFECT
 
 	useEffect(() => {
-		hasError && setValues(new Array(length).fill(defaultValue));
+		hasError && setValues(new Array(length).fill(EMPTY_STRING));
 	}, [hasError]);
 
 	// ON VALUES CHANGE EFFECT
@@ -148,6 +148,7 @@ function PincodeComponent({
 					ref={(el) => (inputsRef.current[index] = el)}
 					type={onlyNumbers ? 'tel' : 'text'}
 					maxLength={1}
+					placeholder={placeholder.charAt(0)}
 					value={value}
 					disabled={disabled}
 					onpaste={index === 0 ? handlePaste : undefined}
