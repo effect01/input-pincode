@@ -4,15 +4,8 @@
 		<meta charset="UTF-8" />
 		<meta slot="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Input pincode Component</title>
-
-		<link
-			rel="stylesheet"
-			href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css"
-		/>
 		<script type="module" src="./src/index.tsx"></script>
-		<!--Se puede importar una hoja de estilos distinta para cambiar la paleta-->
 	</head>
-
 	<body>
 		<input-pincode></input-pincode>
 		-
@@ -30,6 +23,9 @@
 	<script>
 		document.querySelector('input-pincode').addEventListener('Change', (e) => {
 			console.log(e);
+		});
+		document.querySelector('input-pincode').addEventListener('Enter', (e) => {
+			console.log('Enter', e);
 		});
 		setTimeout(() => {
 			document.querySelector('input-pincode').setAttribute('has-error', true);
