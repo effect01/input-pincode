@@ -46,7 +46,6 @@ export const pincodeStyle = css`
 		--wc-input-pincode--font-family--has-error: 'Montserrat', sans-serif;;
 		--wc-input-pincode--line-height--has-error: 2.5rem;
 		/* disabled */
-		font-size: 16px;
 		--wc-input-pincode--padding--disabled: 1rem solid;
 		--wc-input-pincode--margin--disabled: 0%
 		--wc-input-pincode--outline--disabled: 0px;

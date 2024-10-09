@@ -2,7 +2,7 @@
   "name": "input-pincode",
   "version": "1.0.0",
   "main": "index.js",
-  "keywords": ["pincode", "input","webcomponent","react","angular","javascript","component"],
+  "keywords": ["pincode", "input", "webcomponent", "react", "angular", "javascript", "component"],
   "author": "",
   "license": "ISC",
   "description": "PINCODE Input WEB COMPONENT",
@@ -43,5 +43,14 @@
       "optional": true
     }
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/effect01/input-pincode"
+  },
+  "bugs": {
+    "url": "https://github.com/effect01/input-pincode/issues"
+  },
+  "homepage": "https://github.com/effect01/input-pincode#readme",
+
   "module": "./dist/index.js"
 }
