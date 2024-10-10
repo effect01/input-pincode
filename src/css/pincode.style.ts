@@ -11,7 +11,8 @@ export const pincodeStyle = css`
 		--wc-input-pincode--margin: 0%;
 		--wc-input-pincode--font-weight: 600;
 		--wc-input-pincode--outline: 0px;
-		--wc-input-pincode--border: 1.5px solid;
+		--wc-input-pincode--border-width: 1.5px;
+		--wc-input-pincode--border-style: solid;
 		--wc-input-pincode--border-radius: 0.5rem;
 		--wc-input-pincode--border-color: #d9d9d9;
 		--wc-input-pincode--height: 3.81rem;
@@ -23,48 +24,94 @@ export const pincodeStyle = css`
 		--wc-input-pincode--line-height: 2.5rem;
 		/* valid */
 		--wc-input-pincode--padding--valid: var(--wc-input-pincode--padding);
-		--wc-input-pincode--margin--valid: 0%;
-		--wc-input-pincode--font-weight--valid: 600;
-		--wc-input-pincode--outline--valid: 0px;
-		--wc-input-pincode--border--valid: 1.5px solid;
-		--wc-input-pincode--border-radius--valid: 0.5rem;
-		--wc-input-pincode--height--valid: 3.81rem;
-		--wc-input-pincode--width--valid: 3.63rem;
-		--wc-input-pincode--text-color--valid: #21272a;
-		--wc-input-pincode--background--valid: transparent;
-		--wc-input-pincode--font-size--valid: 2rem;
-		--wc-input-pincode--font-family--valid: 'Montserrat', sans-serif;
-		--wc-input-pincode--line-height--valid: 2.5rem;
+		--wc-input-pincode--margin--valid: var(--wc-input-pincode--margin);
+		--wc-input-pincode--font-weight--valid: var(
+			--wc-input-pincode--font-weight
+		);
+		--wc-input-pincode--outline--valid: var(--wc-input-pincode--outline);
+		--wc-input-pincode--border-width--valid: var(
+			--wc-input-pincode--border-width
+		);
+		--wc-input-pincode--border-style--valid: var(
+			--wc-input-pincode--border-style
+		);
+		--wc-input-pincode--border-radius--valid: var(
+			--wc-input-pincode--border-radius
+		);
+		--wc-input-pincode--height--valid: var(--wc-input-pincode--height);
+		--wc-input-pincode--width--valid: var(--wc-input-pincode--width);
+		--wc-input-pincode--text-color--valid: var(--wc-input-pincode--text-color);
+		--wc-input-pincode--background--valid: var(--wc-input-pincode--background);
+		--wc-input-pincode--font-size--valid: var(--wc-input-pincode--font-size);
+		--wc-input-pincode--font-family--valid: var(
+			--wc-input-pincode--font-family
+		);
+		--wc-input-pincode--line-height--valid: var(
+			--wc-input-pincode--line-height
+		);
 		--wc-input-pincode--border-color--valid: #0079c8;
 		/* error */
-		--wc-input-pincode--padding--has-error: 0;
-		--wc-input-pincode--margin--has-error: 0%;
-		--wc-input-pincode--font-weight--has-error: 600;
-		--wc-input-pincode--outline--has-error: 0px;
-		--wc-input-pincode--border--has-error: 1.5px solid;
-		--wc-input-pincode--border-radius--has-error: 0.5rem;
-		--wc-input-pincode--height--has-error: 3.81rem;
-		--wc-input-pincode--width--has-error: 3.63rem;
-		--wc-input-pincode--text-color--has-error: #d60023;
-		--wc-input-pincode--background--has-error: transparent;
-		--wc-input-pincode--font-size--has-error: 2rem;
-		--wc-input-pincode--font-family--has-error: 'Montserrat', sans-serif;
-		--wc-input-pincode--line-height--has-error: 2.5rem;
+		--wc-input-pincode--padding--has-error: var(--wc-input-pincode--padding);
+		--wc-input-pincode--margin--has-error: var(--wc-input-pincode--margin);
+		--wc-input-pincode--font-weight--has-error: var(
+			--wc-input-pincode--font-weight
+		);
+		--wc-input-pincode--outline--has-error: var(--wc-input-pincode--outline);
+		--wc-input-pincode--border-width--has-error: var(
+			--wc-input-pincode--border-width
+		);
+		--wc-input-pincode--border-style--has-error: var(
+			--wc-input-pincode--border-style
+		);
+		--wc-input-pincode--border-radius--has-error: var(
+			--wc-input-pincode--border-radius
+		);
+		--wc-input-pincode--height--has-error: var(--wc-input-pincode--height);
+		--wc-input-pincode--width--has-error: var(--wc-input-pincode--width);
+		--wc-input-pincode--text-color--has-error: var(
+			--wc-input-pincode--text-color
+		);
+		--wc-input-pincode--border-color--has-error: #d60023;
+		--wc-input-pincode--background--has-error: var(
+			--wc-input-pincode--background
+		);
+		--wc-input-pincode--font-size--has-error: var(
+			--wc-input-pincode--font-size
+		);
+		--wc-input-pincode--font-family--has-error: var(
+			--wc-input-pincode--font-family
+		);
+		--wc-input-pincode--line-height--has-error: var(
+			--wc-input-pincode--line-height
+		);
 		/* disabled */
-		--wc-input-pincode--padding--disabled: 0;
-		--wc-input-pincode--margin--disabled: 0%;
-		--wc-input-pincode--font-weight--disabled: 600;
-		--wc-input-pincode--outline--disabled: 0px;
-		--wc-input-pincode--border--disabled: 1.5px solid;
-		--wc-input-pincode--border-radius--disabled: 0.5rem;
+		--wc-input-pincode--padding--disabled: var(--wc-input-pincode--padding);
+		--wc-input-pincode--margin--disabled: var(--wc-input-pincode--margin);
+		--wc-input-pincode--font-weight--disabled: var(
+			--wc-input-pincode--font-weight
+		);
+		--wc-input-pincode--outline--disabled: var(--wc-input-pincode--outline);
+		--wc-input-pincode--border-width--disabled: var(
+			--wc-input-pincode--border-width
+		);
+		--wc-input-pincode--border-style--disabled: var(
+			--wc-input-pincode--border-style
+		);
+		--wc-input-pincode--border-radius--disabled: var(
+			--wc-input-pincode--border-radius
+		);
 		--wc-input-pincode--border-color--disabled: #d9d9d9;
-		--wc-input-pincode--height--disabled: 3.81rem;
-		--wc-input-pincode--width--disabled: 3.62rem;
+		--wc-input-pincode--height--disabled: var(--wc-input-pincode--height);
+		--wc-input-pincode--width--disabled: var(--wc-input-pincode--width);
 		--wc-input-pincode--text-color--disabled: #21272a;
 		--wc-input-pincode--background--disabled: #f8f8f8;
-		--wc-input-pincode--font-size--disabled: 2rem;
-		--wc-input-pincode--font-family--disabled: 'Montserrat', sans-serif;
-		--wc-input-pincode--line-height--disabled: 2.5rem;
+		--wc-input-pincode--font-size--disabled: var(--wc-input-pincode--font-size);
+		--wc-input-pincode--font-family--disabled: var(
+			--wc-input-pincode--font-family
+		);
+		--wc-input-pincode--line-height--disabled: var(
+			--wc-input-pincode--line-height
+		);
 	}
 	@media (max-width: 767px) {
 		:host {
@@ -73,18 +120,6 @@ export const pincodeStyle = css`
 			--wc-input-pincode--font-size: 1.75rem;
 			--wc-input-pincode--height: 2.847rem;
 			--wc-input-pincode--width: 2.65rem;
-			/*  */
-			--wc-input-pincode--font-size--disabled:: 1.75rem;
-			--wc-input-pincode--height--disabled:  2.847rem;
-			--wc-input-pincode--width--disabled:  2.65rem;
-			/*  */
-			--wc-input-pincode--font-size--has-error:: 1.75rem;
-			--wc-input-pincode--height--has-error:  2.847rem;
-			--wc-input-pincode--width--has-error:  2.65rem;
-			/*  */
-			--wc-input-pincode--font-size--valid: 1.75rem;
-			--wc-input-pincode--height--valid: 2.847rem;
-			--wc-input-pincode--width--valid:  2.65rem;
 		}
 	}
 	.webcomponent-input-pincode-container {
@@ -107,7 +142,8 @@ export const pincodeStyle = css`
 		line-height: var(--wc-input-pincode--line-height);
 		background-color: transparent;
 		border-radius: var(--wc-input-pincode--border-radius);
-		border: var(--wc-input-pincode--border);
+		border-width: var(--wc-input-pincode--border-width);
+		border-style: var(--wc-input-pincode--border-style);
 		padding: var(--wc-input-pincode--padding);
 	}
 	.webcomponent-input-pincode:not(.valid) {
@@ -126,7 +162,8 @@ export const pincodeStyle = css`
 		line-height: var(--wc-input-pincode--line-height--valid);
 		background-color: var(--wc-input-pincode--background--valid);
 		border-radius: var(--wc-input-pincode--border-radius--valid);
-		border: var(--wc-input-pincode--border--valid);
+		border-width: var(--wc-input-pincode--border-width--valid);
+		border-style: var(--wc-input-pincode--border-style--valid);
 		padding: var(--wc-input-pincode--padding--valid);
 		border-color: var(--wc-input-pincode--border-color--valid);
 	}
@@ -144,7 +181,8 @@ export const pincodeStyle = css`
 		line-height: var(--wc-input-pincode--line-height--has-error);
 		background-color: var(--wc-input-pincode--background--has-error);
 		border-radius: var(--wc-input-pincode--border-radius--has-error);
-		border: var(--wc-input-pincode--border--has-error);
+		border-width: var(--wc-input-pincode--border-width--has-error);
+		border-style: var(--wc-input-pincode--border-style--has-error);
 		padding: var(--wc-input-pincode--padding--has-error);
 	}
 	.webcomponent-input-pincode[disabled] {
@@ -160,7 +198,8 @@ export const pincodeStyle = css`
 		line-height: var(--wc-input-pincode--line-height--disabled);
 		background-color: var(--wc-input-pincode--background--disabled);
 		border-radius: var(--wc-input-pincode--border-radius--disabled);
-		border: var(--wc-input-pincode--border--disabled);
+		border-width: var(--wc-input-pincode--border-width--disabled);
+		border-style: var(--wc-input-pincode--border-style--disabled);
 		padding: var(--wc-input-pincode--padding--disabled);
 		border-color: var(--wc-input-pincode--border-color--disabled);
 	}
