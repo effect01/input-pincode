@@ -28,10 +28,21 @@ function PincodeComponent({
 	const [isCompleted, setisCompleted] = useState(false);
 	const [value, setValue] = useState(EMPTY_STRING);
 
+	// Dispatch event to notify about the pincode state (completed or not)
+
+	const dispatchEvent = useEvent('Change', {
+		bubbles: true,
+		composed: true
+	});
+
+	const dispatchEnterEvent = useEvent('Enter', {
+		bubbles: true,
+		composed: true
+	});
+
 	// Function to handle input changes
 
 	const handleInput = ({ value, index }: { value: string; index: number }) => {
-		console.log('handleevent');
 		const newValues = [...values];
 		const regex = onlyNumbers ? /^\d*$/ : /./; // Allow only numbers or any character based on the prop
 		newValues[index] = regex.test(value) ? value : EMPTY_STRING;
@@ -106,23 +117,25 @@ function PincodeComponent({
 			return;
 		}
 
+		// Handle Enter key: Dispatch a custom event
+
+		if (e.key === 'Enter') {
+			e.preventDefault();
+			dispatchEnterEvent({
+				isCompleted,
+				value
+			});
+			return;
+		}
+
 		// Navigate between inputs with left and right arrow keys
 
 		if (e.key === 'ArrowLeft' && index > 0) {
 			inputsRef.current[index - 1]?.focus();
-			return;
 		} else if (e.key === 'ArrowRight' && index < length - 1) {
-			inputsRef.current[index + 1]?.focus(); //
-			return;
+			inputsRef.current[index + 1]?.focus();
 		}
 	};
-
-	// Dispatch event to notify about the pincode state (completed or not)
-
-	const dispatchEvent = useEvent('Change', {
-		bubbles: true,
-		composed: true
-	});
 
 	// ON INIT EFFECT
 

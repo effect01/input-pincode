@@ -1,20 +1,28 @@
 {
   "name": "input-pincode",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "main": "index.js",
-  "keywords": ["pincode", "input","webcomponent","react","angular","javascript","component"],
+  "keywords": [
+    "pincode",
+    "input",
+    "webcomponent",
+    "react",
+    "angular",
+    "javascript",
+    "component"
+  ],
   "author": "",
   "license": "ISC",
   "description": "PINCODE Input WEB COMPONENT",
   "scripts": {
     "start": "vite",
-    "build": "vite build",
+    "build-v": "vite build",
     "test-generate": "vitest",
     "test-generate:coverage": "vitest run --coverage",
     "test-generate:ui": "vitest --ui",
     "exports": "exports \"src/**/*.{ts,tsx}\" --exports --types --main index --analyzer",
     "prepublishOnly": "",
-    "build-wc": "vite build && npm run exports"
+    "build": "vite build && npm run exports"
   },
   "dependencies": {
     "@atomico/hooks": "^4.0.0",
@@ -43,5 +51,45 @@
       "optional": true
     }
   },
-  "module": "./dist/index.js"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/effect01/input-pincode"
+  },
+  "bugs": {
+    "url": "https://github.com/effect01/input-pincode/issues"
+  },
+  "homepage": "https://github.com/effect01/input-pincode#readme",
+  "module": "./dist/index.js",
+  "exports": {
+    "./index": "./dist/index.js",
+    ".": "./dist/index.js",
+    "./Pincode": "./dist/components/Pincode.js",
+    "./index.react": "./dist/index.react.js",
+    "./index.preact": "./dist/index.preact.js",
+    "./react": "./dist/react.js",
+    "./preact": "./dist/preact.js"
+  },
+  "types": "types/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "index": [
+        "./types/index.d.ts"
+      ],
+      "Pincode": [
+        "./types/components/Pincode.d.ts"
+      ],
+      "index.react": [
+        "./types/index.react.d.ts"
+      ],
+      "index.preact": [
+        "./types/index.preact.d.ts"
+      ],
+      "react": [
+        "./types/react.d.ts"
+      ],
+      "preact": [
+        "./types/preact.d.ts"
+      ]
+    }
+  }
 }
