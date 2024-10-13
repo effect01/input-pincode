@@ -183,7 +183,7 @@ function PincodeComponent({
 						placeholder={placeholder.charAt(0)}
 						value={$value}
 						disabled={disabled}
-						onpaste={index === 0 ? handlePaste : undefined}
+						onpaste={handlePaste }
 						oninput={(e) => {
 							e.preventDefault();
 							handleInput({

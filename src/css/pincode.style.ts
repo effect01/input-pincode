@@ -5,7 +5,8 @@ export const pincodeStyle = css`
 
 	:host {
 		font-size: 16px;
-		--wc-input-pincode-container--gap: 1rem;
+		--wc-input-pincode-container--gap: none;
+		--wc-input-pincode-container--justify-content: space-between;
 
 		--wc-input-pincode--padding: 0;
 		--wc-input-pincode--margin: 0%;
@@ -116,7 +117,6 @@ export const pincodeStyle = css`
 	@media (max-width: 767px) {
 		:host {
 			--wc-input-pincode-container--gap: 0.5rem;
-			/*  */
 			--wc-input-pincode--font-size: 1.75rem;
 			--wc-input-pincode--height: 2.847rem;
 			--wc-input-pincode--width: 2.65rem;
@@ -125,6 +125,7 @@ export const pincodeStyle = css`
 	.webcomponent-input-pincode-container {
 		display: flex;
 		flex-direction: col;
+		justify-content: var(--wc-input-pincode-container--justify-content);
 		gap: var(--wc-input-pincode-container--gap);
 	}
 	.webcomponent-input-pincode,

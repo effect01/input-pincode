@@ -4,3 +4,5 @@
 !/dist
 # We unignore the types folder
 !/types
+
+!pincode.png
